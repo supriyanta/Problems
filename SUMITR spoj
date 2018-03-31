@@ -1,0 +1,3 @@
+
+#include<bits/stdc++.h>
+using namespace std;int v[102][102];long long rec(int row,int col,ll val){if(row<1)return val;if(col<1 || col>row)return 0;return max(rec(row-1,col,val+v[row][col]),rec(row-1,col-1,val+v[row][col]));}int main(){int t,n,x;cin>>t;while(t--){long long Max=INT_MIN,ans;cin>>n;for(int i=1;i<=n;++i){for(int j=1;j<=i;++j)cin>>v[i][j];}for(int i=1;i<=n;++i){ans=max(rec(n-1,i,v[n][i]),rec(n-1,i-1,v[n][i]));Max=max(Max,ans);}cout<<Max<<endl;}return 0;}
